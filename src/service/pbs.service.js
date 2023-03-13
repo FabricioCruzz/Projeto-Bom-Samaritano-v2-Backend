@@ -1,12 +1,6 @@
-const service = require("../service/pbs.service");
+const create = async (req, res) => {};
 
-const create = async (req, res) => {
-  //Create
-};
-
-const getAll = async (req, res) => {
-  await res.send("Hello World From Controller");
-};
+const getAll = async (req, res) => {};
 
 const getById = async (req, res) => {};
 
