@@ -9,3 +9,43 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Reg_Person{
+  id_person Int @id @default(autoincrement())
+	completeName String @db.VarChar(100)
+	street String @db.VarChar(150)
+	houseNumber String @db.VarChar(20)
+	district String @db.VarChar(50)
+	addressComplement String @db.VarChar(50)
+	city String @db.VarChar(50)
+	phone1 String @db.VarChar(14)
+	phone2 String? @db.VarChar(14)
+	birthDate DateTime
+	maritalStatus String @db.VarChar(20)
+	schoolLevel String @db.VarChar(40)
+	occupation String @db.VarChar(50)
+	isWorking String @db.Char(3)
+	srcIncome String @db.VarChar(30)
+	numberOfResidents Int
+	familyIncome Decimal @db.Decimal(7,2)
+	housingSituation String @db.VarChar(20)
+	appliances String[] @db.VarChar(70)
+	needBlankets String @db.Char(3)
+	needShoes_answer String @db.Char(3) 
+	needShoes_number Int?
+	needClothes_answer String @db.Char(3)
+	needClothes_pantsNumber Int?
+	needClothes_tShirtCoatSize String? @db.Char(2)
+	needDiapers_answer String @db.Char(3)
+	needDiapers_size String @db.Char(2)
+	specialNeed String @db.VarChar(200)
+	workshop String[] @db.VarChar(50)
+	religion String @db.VarChar(30)
+	receivedSacraments String[] @db.VarChar(100)
+	wishReceiveSacraments String[] @db.VarChar(100)
+	attendanceMass String @db.VarChar(70)
+	churchActivity String[] @db.VarChar(100)
+	memberPastoralsMovements_answer String @db.Char(3)
+	memberPastoralsMovements_which String? @db.VarChar(40)
+}
