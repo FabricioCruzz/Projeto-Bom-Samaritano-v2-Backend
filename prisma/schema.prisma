@@ -77,8 +77,8 @@ model Dependents{
 }
 
 model ProductStock{
-	id_product SERIAL primary key not null,
-	product VARCHAR(100) not null,
-	productType CHAR(5) not null,
-	amount INTEGER not null
+	id_product Int @id @default(autoincrement())
+	product String @db.VarChar(100)
+	productType String @db.Char(5)
+	amount Int
 }
