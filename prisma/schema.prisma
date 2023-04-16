@@ -12,7 +12,7 @@ datasource db {
 
 
 model Reg_Person{
-  id_person Int @id @default(autoincrement())
+  	id_person Int @id @default(autoincrement())
 	completeName String @db.VarChar(100)
 	street String @db.VarChar(150)
 	houseNumber String @db.VarChar(20)
@@ -48,4 +48,29 @@ model Reg_Person{
 	churchActivity String[] @db.VarChar(100)
 	memberPastoralsMovements_answer String @db.Char(3)
 	memberPastoralsMovements_which String? @db.VarChar(40)
+}
+
+model Dependents{
+	id_dep Int @id @default(autoincrement())
+	completeName String @db.VarChar(100)
+	birthDate DateTime
+	relationship String @db.VarChar(20)
+	schoolLevel String @db.VarChar(40)
+	occupation String @db.VarChar(50)
+	isWorking String @db.Char(3)
+	needShoes_answer String @db.Char(3)
+	needShoes_number Int?
+	needClothes_answer String @db.Char(3)
+	needClothes_pantsNumber Int?
+	needClothes_tShirtCoatSize String? @db.Char(2)
+	workshop String[] @db.VarChar(50)
+	religion String @db.VarChar(30)
+	receivedSacraments String[] @db.VarChar(100)
+	wishReceiveSacraments String[] @db.VarChar(100)
+	attendanceMass String @db.VarChar(70)
+	churchActivity String[] @db.VarChar(100)
+	memberPastoralsMovements_answer String @db.Char(3)
+	memberPastoralsMovements_which String? @db.VarChar(40)
+	person Reg_Person @relation(fields: [id_person], references: [id_person])
+	id_person Int
 }
