@@ -48,6 +48,7 @@ model Reg_Person{
 	churchActivity String[] @db.VarChar(100)
 	memberPastoralsMovements_answer String @db.Char(3)
 	memberPastoralsMovements_which String? @db.VarChar(40)
+	dependents Dependents[]
 }
 
 model Dependents{
@@ -73,4 +74,11 @@ model Dependents{
 	memberPastoralsMovements_which String? @db.VarChar(40)
 	person Reg_Person @relation(fields: [id_person], references: [id_person])
 	id_person Int
+}
+
+model ProductStock{
+	id_product SERIAL primary key not null,
+	product VARCHAR(100) not null,
+	productType CHAR(5) not null,
+	amount INTEGER not null
 }
