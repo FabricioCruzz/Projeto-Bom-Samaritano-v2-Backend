@@ -1,4 +1,4 @@
-const service = require("../service/pbs.service");
+const service = require("../service/registers.service");
 
 const create = async (req, res) => {
   //Create

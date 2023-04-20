@@ -1,5 +1,5 @@
 const express = require("express");
-const controller = require("../controller/pbs.controller.js");
+const controller = require("../controller/registers.controller.js");
 
 const router = express.Router();
 
