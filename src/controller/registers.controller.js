@@ -4,11 +4,11 @@ const create = async (req, res) => {
   //Create
 };
 
-const getAll = async (req, res) => {
+const getAllRegisters = async (req, res) => {
   await res.send("Hello World From Controller");
 };
 
-const getById = async (req, res) => {};
+const getRegisterById = async (req, res) => {};
 
 const update = async (req, res) => {};
 
@@ -16,8 +16,8 @@ const remove = async (req, res) => {};
 
 module.exports = {
   create,
-  getAll,
-  getById,
+  getAllRegisters,
+  getRegisterById,
   update,
   remove,
 };

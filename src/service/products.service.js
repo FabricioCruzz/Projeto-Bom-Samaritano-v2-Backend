@@ -1,31 +1,53 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-const create = async prodData => {
+const create = async productData => {
   await prisma.productStock.create({
     data: {
-      product: prodData.product,
-      productType: prodData.productType,
-      amount: prodData.amount
+      product: productData.product,
+      productType: productData.productType,
+      amount: productData.amount
     }
   })
-  return;
 };
 
-const getAll = async () => {
+const getAllProdutcs = async () => {
   return await prisma.productStock.findMany();
 };
 
-const getById = async (req, res) => {};
+const getProductById = async productId => {
+  return await prisma.productStock.findUnique({
+    where: {
+      id_product: productId,
+    },
+  })
+};
 
-const update = async (req, res) => {};
+const update = async (productId, data) => {
+  await prisma.productStock.update({
+    where: {
+      id_product: Number(productId),
+    },
+    data: {
+      product: data.product,
+      productType: data.productType,
+      amount: data.amount,
+    },
+  })
+};
 
-const remove = async (req, res) => {};
+const remove = async productId => {
+  return await prisma.productStock.delete({
+    where: {
+      id_product: Number(productId),
+    },
+  })
+};
 
 module.exports = {
   create,
-  getAll,
-  getById,
+  getAllProdutcs,
+  getProductById,
   update,
   remove,
 };
