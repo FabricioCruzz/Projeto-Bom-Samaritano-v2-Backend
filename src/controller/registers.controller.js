@@ -1,18 +1,24 @@
 const service = require("../service/registers.service");
 
 const create = async (req, res) => {
-  //Create
+  await service.create(req.body);
+  res.status(201).send("Register created successfully!");
 };
 
-const getAllRegisters = async (req, res) => {
-  await res.send("Hello World From Controller");
+const getAllRegisters = async (_req, res) => {
+  const response = await service.getAllRegisters();
+  res.send(response);
 };
 
 const getRegisterById = async (req, res) => {};
 
 const update = async (req, res) => {};
 
-const remove = async (req, res) => {};
+const remove = async (req, res) => {
+  const registerId = req.params.id;
+  await service.remove(registerId);
+  res.status(204).send("");
+};
 
 module.exports = {
   create,
