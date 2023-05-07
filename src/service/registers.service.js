@@ -124,7 +124,7 @@ const getAllRegisters = async () => {
 const getRegisterById = async (registerId) => {
   return await prisma.reg_Person.findUnique({
     where: {
-      id_person: Number(registerId),
+      id_person: registerId,
     },
   });
 };
@@ -134,20 +134,20 @@ const update = async (req, res) => {};
 const remove = async (registerId) => {
   const dependents = await prisma.reg_Person.findMany({
     where: {
-      id_person: Number(registerId), // TODO: Verificar o id se está como String ou Number e se esse é o problema
+      id_person: registerId,
     },
   });
 
   if (dependents.length > 0) {
     await prisma.reg_Person.deleteMany({
       where: {
-        id_person: Number(registerId),
+        id_person: registerId,
       },
     });
   } else {
     await prisma.reg_Person.delete({
       where: {
-        id_person: Number(registerId),
+        id_person: registerId,
       },
     });
   }

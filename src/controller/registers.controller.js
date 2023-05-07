@@ -10,12 +10,15 @@ const getAllRegisters = async (_req, res) => {
   res.send(response);
 };
 
-const getRegisterById = async (req, res) => {};
+const getRegisterById = async (req, res) => {
+  const registerId = parseInt(req.params.id, 10);
+  res.send(await service.getRegisterById(registerId));
+};
 
 const update = async (req, res) => {};
 
 const remove = async (req, res) => {
-  const registerId = req.params.id;
+  const registerId = parseInt(req.params.id, 10);
   await service.remove(registerId);
   res.status(204).send("");
 };
