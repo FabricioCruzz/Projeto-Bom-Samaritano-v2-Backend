@@ -15,7 +15,11 @@ const getRegisterById = async (req, res) => {
   res.send(await service.getRegisterById(registerId));
 };
 
-const update = async (req, res) => {};
+const update = async (req, res) => {
+  const registerId = parseInt(req.params.id, 10);
+  await service.update(registerId, req.body);
+  res.status(200).send("Register updated successfully!");
+};
 
 const remove = async (req, res) => {
   const registerId = parseInt(req.params.id, 10);

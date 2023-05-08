@@ -18,7 +18,7 @@ const getAllProdutcs = async () => {
 const getProductById = async (productId) => {
   return await prisma.productStock.findUnique({
     where: {
-      id_product: Number(productId),
+      id_product: productId,
     },
   });
 };
@@ -26,7 +26,7 @@ const getProductById = async (productId) => {
 const update = async (productId, data) => {
   await prisma.productStock.update({
     where: {
-      id_product: Number(productId),
+      id_product: productId,
     },
     data: {
       product: data.product,
@@ -39,7 +39,7 @@ const update = async (productId, data) => {
 const remove = async (productId) => {
   return await prisma.productStock.delete({
     where: {
-      id_product: Number(productId),
+      id_product: productId,
     },
   });
 };
