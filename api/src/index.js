@@ -10,9 +10,9 @@ async function main() {
   const app = express();
 
   app.use(express.json());
+  app.use(cors());
   app.use("/api/v1/pbs/registers", regRouter);
   app.use("/api/v1/pbs/products", productsRouter);
-  app.use(cors());
 
   app.listen(PORT, () =>
     console.log(
