@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const regRouter = require("./router/registers.route");
 const productsRouter = require("./router/products.route");
 const { PrismaClient } = require("@prisma/client");
@@ -11,6 +12,7 @@ async function main() {
   app.use(express.json());
   app.use("/api/v1/pbs/registers", regRouter);
   app.use("/api/v1/pbs/products", productsRouter);
+  app.use(cors());
 
   app.listen(PORT, () =>
     console.log(

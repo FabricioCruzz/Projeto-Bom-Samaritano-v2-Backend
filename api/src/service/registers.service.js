@@ -1,10 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-// TODO: TESTAR
 const create = async (registerData) => {
-  // console.log(registerData);
-
   const {
     completeName,
     street,
