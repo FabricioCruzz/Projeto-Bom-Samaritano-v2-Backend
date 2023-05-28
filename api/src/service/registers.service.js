@@ -123,6 +123,7 @@ const getRegisterById = async (registerId) => {
     where: {
       id_person: registerId,
     },
+    include: { dependents: true },
   });
 };
 
