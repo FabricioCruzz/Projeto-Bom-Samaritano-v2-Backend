@@ -112,6 +112,7 @@ const create = async (registerData) => {
 
 const getAllRegisters = async () => {
   return await prisma.reg_Person.findMany({
+    orderBy: { id_person: "asc" },
     include: {
       dependents: true,
     },

@@ -12,7 +12,9 @@ const create = async (productData) => {
 };
 
 const getAllProdutcs = async () => {
-  return await prisma.productStock.findMany();
+  return await prisma.productStock.findMany({
+    orderBy: { id_product: "asc" },
+  });
 };
 
 const getProductById = async (productId) => {
